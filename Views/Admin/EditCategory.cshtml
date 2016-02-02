@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "EditCategory";
+}
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}s
+
+<div class="container" style="border:solid; border-color:whitesmoke;margin-left:185px;margin-right:185px;">
+
+    <center>
+        <h2>EditCategory</h2>
+        <form method="post" action="/Admin/EditC">
+            
+            <span>
+                <label style="color:whitesmoke;font-family:'Comic Sans MS';font-weight:bold">Cactegory Name</label>
+                <input type="text" name="CName" id="CName" value="@Model.CName" />
+            </span>
+            <br/>
+            <span>
+                <label style="color:whitesmoke;font-family:'Comic Sans MS';display:inline-block;">Description:</label>
+                <input type="text" name="Desc" id="Desc" value="@Model.Desc" />
+            </span>
+            <br />
+            <span>
+                <label style="color: whitesmoke; font-family: 'Comic Sans MS'; display: inline-block;">Category Id:</label>
+                <input type="hidden" name="CId" id="CId" value="@Model.CId" />
+            </span>
+            <br />
+            
+            <button>Update</button>
+        </form>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </center>
+</div>

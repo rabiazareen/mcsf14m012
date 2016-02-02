@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "ViewProducts";
+}
+@using GroceryStore.Models;
+@model IEnumerable<Product>
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+
+<center>
+    <h2>ViewProducts</h2>
+    <div class="table-responsive" style="border:solid;margin-left:300px;margin-right:300px;">
+        <table class="table">
+            <thead>
+                <tr class=" info">
+                    <td>Name</td>
+                    <td>Brand</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Amount</td>
+                    <td>Category Id</td>
+                    <td>image</td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Product i in Model)
+                {
+                    <tr>
+                        <td>@i.PName</td>
+                        <td>@i.Brand</td>
+                        <td>@i.Price</td>
+                        <td>@i.Qty</td>
+                        <td>@i.Amount</td>
+                        <td>@i.CId</td>
+                        <td><img src="@i.Path" height="25" width="25" /></td>
+                        <td>@Html.ActionLink("Edit", "EditProduct", "Admin", new { id = @i.PId }, null)</td>
+                        <td>@Html.ActionLink("Delete", "deleteProduct", "Admin", new { id = @i.PId }, null)</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</center>

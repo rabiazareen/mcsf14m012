@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "EditProfile";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@using GroceryStore.Models;
+@model User
+@{
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+
+<div class=" container">
+    <div class="jumbotron"> 
+    <center>
+        <h2 style="color:black;">EditProfile</h2>
+    </center>
+    <center>
+        <form method="post" action="/Customer/Edit">
+            <span>
+                @Html.Label("Name");
+                <input type="hidden" name="Name" id="Name" value="@Model.Name" required />
+            </span>
+            <br/>
+            <span>
+                @Html.Label("Password:")
+                <input type="text" name="Password" id="Password" value="@Model.Password" required/>
+            </span>
+            <br/>
+            <span>
+                @Html.Label("PhoneNo:")
+                <input type="text" name="PhoneNo" id="PhoneNo" value="@Model.PhoneNo" required/>
+            </span>
+            <br />
+            <span>
+                @Html.Label("Email:")
+                <input type="text" name="Email" id="Email" value="@Model.Email"required />
+            </span>
+            <br />
+            <span>
+                @Html.Label("Address")
+                <input type="text" name="Address" id="Address" value="@Model.Address"required />
+            </span>
+            <br />
+            <input type="hidden" name="Role" id="Role" value="@Model.Role" required/>
+            <button>Update</button>
+        </form>
+    </center>
+        </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Total";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@using GroceryStore.Models;
+@using GroceryStore.Controllers; 
+<center>
+<h2 style="color:black;">Invoice</h2>
+
+    
+        
+        
+         <center>
+        <div class="table-responsive" style="border:solid;margin-left:350px;margin-right:350px;">
+            <table class="table">
+                <thead>
+                    
+                    <tr class="info">
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>SubTotal</td>
+                    </tr>
+                </thead>
+                <tbody>
+                 @{   
+                       
+                foreach (Item it in ViewBag.Cart)
+                {
+                        <tr>
+                            <td>@it.p.PName</td>
+                            <td>@it.p.Price</td>
+                            <td>@it.Qty</td>
+                            <td>@(it.p.Price*it.Qty)</td>
+
+                        </tr>
+                }
+                <tr><td>total:@ViewBag.total</td></tr>
+                }     
+                </tbody>
+            </table>
+        </div>
+    </center>
+        
+                               
+    
+
+</center>

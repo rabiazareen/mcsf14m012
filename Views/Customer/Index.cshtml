@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@using GroceryStore.Models;
+
+
+
+
+@foreach (Product p in Model)
+{
+    <div class="row" style="border-right-color: whitesmoke; border-left-color: whitesmoke; border-top-color: whitesmoke; border-bottom-color: whitesmoke;background-color:whitesmoke ; border-style: solid; margin-left: 220px; margin-right:100px; padding-left: 50px; padding-right: 50px; ">
+        <div class="col-md-3">
+            <center>
+                <a href="#" class="thumbnail" >
+
+                    <label style="font-family:Cambria; color:black; font-weight:bolder"> @p.PName</label>
+                    <label style="font-family:Cambria; color:black; font-weight:bolder">@p.Price</label>
+                    <img src="@p.Path" style="width:50px; height:50px" />
+                </a>
+            </center>
+            <center>
+            <a href="/Customer/Shopping/?i=@p.PId" class="btn btn-primary" role="button">
+                Buy Now
+            </a>
+                </center>
+        </div>
+
+    </div>
+
+    <br/>
+}
+
+

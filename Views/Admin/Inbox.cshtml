@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Inbox";
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+@using GroceryStore.Models;
+<div>
+<h2 style="color:black;font-family:'Comic Sans MS';">Inbox</h2>
+<center>
+    <div  style="margin-left:300px;margin-right:300px;">       
+                @foreach (var i in Model)
+                {
+                        <label>@i.UName:</label>
+                    <br>
+                        <label>@i.Question</label>
+
+                    <br> 
+                    if (i.Reply==null)
+                    {    
+                         <label><a href="/Admin/ReplyR?id=@i.QId">Reply</a></label>
+                    }
+                    else
+                    {
+                        <label>Reply Sent</label>
+                    }
+                    
+                }
+    </div>
+</center>
+</div>

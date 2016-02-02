@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "AddCategory";
+}
+
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+@using GroceryStore.Models
+@model Category
+
+
+
+<div class="container">
+    <div class="jumbotron">
+        <center>
+            <h2 style="color:black;">AddCategory</h2>
+        </center>
+        <form class=" form-horizontal" role="form" method="post" action="/Admin/AddC">
+            <div class="form-group">
+                <div class="col-sm-2">
+                @Html.LabelFor(Model => Model.CName);
+                    </div>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(Model => Model.CName, new  {id=1, @class="form-control",placeholder="Enter CategoryName" });
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    @Html.LabelFor(Model=>Model.Desc)
+                </div>
+
+                <div class="col-sm-10">                    
+                    @Html.TextBoxFor(Model => Model.Desc, new  {id=2, @class="form-control",placeholder="Enter description" });               
+                </div>
+            </div>
+            <br>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

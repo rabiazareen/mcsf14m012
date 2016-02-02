@@ -1,0 +1,60 @@
+﻿
+
+@{
+    ViewBag.Title = "ViewFeedback";
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+@using GroceryStore.Models
+@model IEnumerable<Feedback>
+
+<head>
+    <title></title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+
+</head>
+<body >
+   
+       
+
+        
+
+    <center>
+        <h2>ViewFeedback</h2>
+         <div class="table-responsive" style="border:solid;margin-left:300px;margin-right:300px;">
+            <table class="table">
+                <thead>
+                    <tr class="info">
+                        <td>Id</td>
+                        <td>Name</td>
+                        <td>Email</td>
+                        <td>Feedback</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var f in Model)
+                    {
+                        <tr>
+                            <td>@f.FId</td>
+                            <td>@f.FName</td>
+                            <td>@f.FEmail</td>
+                            <td>@f.FComments</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
+
+
+
+
+
+
+</body>

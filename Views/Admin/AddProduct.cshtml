@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "AddProduct";
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+
+@using GroceryStore.Models;
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+
+</head>
+
+<body >
+    <center>
+        <div class="table-responsive" style="border:solid;margin-left:300px;margin-right:300px;">
+            <table class="table">
+                <thead>
+                    <tr class="info">
+                        <td>Id</td>
+                        <td>Name</td>
+                        <td>Description</td>
+                        <td>Update</td>
+                        <td>Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Category i in Model)
+                    {
+                        <tr>
+                            <td>@i.CId</td>
+                            <td>@i.CName</td>
+                            <td>@i.Desc</td>
+                            <td>@Html.ActionLink("Edit", "EditCategory", "Admin", new { id = @i.CId }, null)</td>
+                            <td>@Html.ActionLink("Delete", "deleteCategory", "Admin", new { id = @i.CId }, null)</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
+    <div class="container" >
+        <div class="jumbotron">
+            <center>
+                <h2>AddProduct</h2>
+            </center>
+            <form method="post" action="add" enctype="multipart/form-data">
+                <center>
+                    <span>
+                            @Html.Label("Name")
+                        <input type="text" name="PName" id="PName" required />
+                    </span>
+                </center>
+                <center>
+                    <span>
+                        @Html.Label("Brand")
+                        <input type="text" name="Brand" id="Brand" required />
+                    </span>
+                </center>
+                <center>
+                    <span>
+                        @Html.Label("Price")
+                        <input type="number" name="Price" id="Price" required />
+                    </span>
+                </center>
+                <center>
+                    <span>
+                        @Html.Label("Quantity")
+                        <input type="number" name="Qty" id="Qty" required />
+                    </span>
+                </center>
+                <center>
+                    <span>
+                        @Html.Label("Amount")
+                        <input type="text" name="Amount" id="Amount" required />
+                    </span>
+                </center>
+                <center>
+                    Upload Image: <input type="file" name="image" required />
+                </center>
+
+                <center>
+                    <span>
+                        @Html.Label("Category Id")
+                       
+                        <select name="CId">
+                            @{
+                                int xy=1 ;
+                                foreach(Category x in Model)
+                                {
+                                    <option value="@x.CId">@x.CName</option>
+                                    xy++;
+                                }
+                                     
+                            }
+                       
+                            
+                        </select>
+                    </span>
+                </center>
+                <center>
+                    <input type="submit" value="Add" />
+                </center>
+            </form>
+        </div>
+    </div>
+
+
+
+
+</body>

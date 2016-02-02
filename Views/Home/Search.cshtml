@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+@using GroceryStore.Models
+@model IEnumerable<Product>
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/themes/full-slider.css" rel="stylesheet" />
+</head>
+<body>
+    <center>
+        <h2 style="font-family:Georgia;font-weight:bolder;color:whitesmoke;">Search</h2>
+
+        
+        @foreach (var p in Model)
+        {
+         <div class="row" style="border-right-color: whitesmoke; border-left-color: whitesmoke; border-top-color: whitesmoke; border-bottom-color: whitesmoke;background-color:whitesmoke ; border-style: solid; margin-left: 195px; margin-right:195px; padding-left: 50px; padding-right: 50px; ">
+          <div class="col-md-3">
+               <a href="#" class="thumbnail">
+                   <label style="font-family:Cambria; color:black; font-weight:bolder"> @p.PName</label>
+                   <label style ="font-family:Cambria; color:black; font-weight:bolder">@p.Price</label>
+                    <img src="@p.Path" style="width:50px; height:50px" />
+                </a>
+              <a href="#" class="btn btn-primary" role="button">
+                  Buy Now
+              </a>
+            </div>
+          </div>
+
+
+        
+        }
+
+
+        
+
+
+
+
+
+        <br>
+    </center>
+    <br>
+    <br>
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+</body>

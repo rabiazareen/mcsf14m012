@@ -1,0 +1,151 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/themes/full-slider.css" rel="stylesheet" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet" />
+
+
+
+
+
+
+    @Styles.Render("~/Content/css")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <style>
+        .nav .div .div .img {
+            height: 50%;
+            display: inline-block;
+            float: left;
+        }
+
+        h2 {
+            font-family: Georgia;
+            color: whitesmoke;
+            font-weight: bolder;
+            margin-left: 400px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body style="background-color:silver ;">
+    
+    <div class="container-fluid" style="background-color: darkgrey; height: 80px; width: 100%">
+
+        <img src="~/Images/logo0.gif" class=" img-circle" style="margin-left:20px;margin-bottom:10px;height:70px;width:80px;margin-top:10px;display:inline-block" />
+
+        <h2 id="3" style="text-align:center;">Online Grocery Store</h2>
+
+
+    </div>
+
+    <nav class="navbar navbar-inverse" style="background-color: black;">
+        <div class=" container-fluid" id="3">
+
+
+            <ul class="nav navbar-nav">
+                <li class="nav-item "><a class=" nav-link" href="/Home/Index" style="font-family:Verdana; color:whitesmoke; font-size:18px;"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li class="nav-item "><a class=" nav-link" href="/Home/About" style="font-family: Verdana; color: whitesmoke; font-size: 18px;">About</a></li>
+                <li class="nav-item "><a class="nav-link" href="/Home/Contact" style="font-family: Verdana; color: whitesmoke; font-size: 18px;">Contact</a></li>
+                <li class="nav-item "><a class="nav-link" href="/Home/SignUp" style="font-family: Verdana; color: whitesmoke; font-size: 18px;"><span class="glyphicon glyphicon-user"></span>SignUp</a></li>
+                <li class="nav-item "><a class="nav-link" href="/Home/SignIn" style="font-family: Verdana; color: whitesmoke; font-size: 18px;"><span class="glyphicon glyphicon-log-in"></span>SignIn</a></li>
+                <li class="nav-item "><a class="nav-link" href="/Home/Feedback" style="font-family: Verdana; color: whitesmoke; font-size: 18px;">Feedback</a></li>
+                
+
+            </ul>
+
+
+            <form class="form-inline pull-right" method="get" action="/Home/Search">
+
+                <input class="col-md-4" type="text" name="Product" placeholder="Search" id="t1" />
+                <select name="base">
+                    <option value="1">Name</option>
+                    <option value="2">Brand</option>
+                </select>
+                <button class="btn btn-inverse " type="submit" id="b1">
+                    Search
+                </button>
+
+            </form>
+        </div>
+
+    </nav>
+    <div class="row" >
+        <form method="get" action="/Home/SearchP">
+            <input type="text" name="min" placeholder="Min range of Price" id="min" />
+            <input  type="text" name="max" placeholder="maxRange of Price" id="max" />
+            <button class="btn btn-inverse " type="submit" id="searchp">
+                Search
+            </button>
+        </form>
+</div>
+    
+    @RenderBody()
+
+    <div id="d1">
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+
+
+
+
+    <footer>
+        <div class="footer" style=" margin-bottom:0px; padding-bottom:0px;">
+            <div style="background-color: darkgrey; ">
+                <br>
+                <br>
+                <p style=" font-weight:bolder; color:whitesmoke; text-align:right;"><h4>&copy;Copy right online grocery store </h4></p>
+                <br>
+                <br>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $().ready(function () {
+            $('#b1').click(function () {
+
+                var roll = $('#t1').val();
+                alert(Search);
+                $.getJSON("/home/search?product=" + roll, function (data) {
+                    $.each(data, function (i, value) {
+
+                        if (data != null) {
+                            $('#d1').append('<div> <label> Name =' + data.PName + '  Amount =' + data.Amount + '  Price =' + data.Price + '</label> <img src="' +data.Path+ '" height="25" width="25" /> </div>');
+                        }
+                    });
+
+                });
+
+            });
+            $("#searhp").click(function () {
+                $("#d1").load("Home/SearchP?min=" + ($("#min"))+"& max="+ ($("#max")));
+            });
+
+        });
+    </script>
+    <script src="~/Scripts/jquery-1.12.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.intellisense.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    @*<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

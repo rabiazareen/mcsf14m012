@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "EditProfile";
+}
+
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+@using GroceryStore.Models;
+@model User
+<div class="container" style="margin-left:185px;margin-right:185px;">
+    <div class="jumbotron">
+    <center>
+        <h2 style="color:black">EditProfile</h2>
+    </center>
+
+    <center>
+        <form method="post" action="/Admin/Edit">
+            <span>
+                <label style="font-family:'Comic Sans MS';">@Model.Name</label>
+                <input type="hidden" name="Name" id="Name" value="@Model.Name" />
+            </span>
+            <span>
+                <label style="font-family:'Comic Sans MS';display:inline-block;">Password:</label>
+                <input type="text" name="Password" id="Password" value="@Model.Password" />
+            </span>
+            <br />
+            <span>
+                <label style="font-family:'Comic Sans MS';display:inline-block;">Phone No.:</label>
+                <input type="text" name="PhoneNo" id="PhoneNo" value="@Model.PhoneNo" />
+            </span>
+            <br />
+            <span>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">Email Id:</label>
+                <input type="text" name="Email" id="Email" value="@Model.Email" />
+            </span>
+            <br />
+            <span>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">Address:</label>
+                <input type="text" name="Address" id="Address" value="@Model.Address" />
+            </span>
+            <br />
+            <input type="hidden" name="Role" id="Role" value="@Model.Role" />
+            <button>Update</button>
+        </form>
+    </center>
+        </div>
+</div>

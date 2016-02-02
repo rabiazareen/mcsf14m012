@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Feedback";
+    
+}
+@using GroceryStore.Models;
+@model IEnumerable<Feedback>
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/themes/full-slider.css" rel="stylesheet" />
+    <style>
+
+     </style>
+    </head>
+
+<body style="background-color:grey">
+    <center>
+        
+
+        <div class="container">
+            <div class="jumbotron">
+                <form class=" form-horizontal" role="form" method="post" action="/Home/addFeedback">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="Name">Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Enter username" name="FName" required id="1">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="Email">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="4" name="FEmail" placeholder="Enter Email" required>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="Email">Feedback:</label>
+                        <div class="col-sm-10">
+                            <textarea id="FComments" name="FComments" placeholder="Feedback" required class="form-control"> Feedback</textarea>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default" id="">Submit</button>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </center>
+
+
+   <br>
+    <br>
+    
+
+   <center>
+        <div id="comment">
+            @foreach(Feedback f in Model)
+            { 
+            <label >@f.FName says:</label>
+            <label >@f.FComments</label>
+            }
+        </div>
+       </center>
+    <input type="button" id="submit12" value="submit">
+    <script>
+        alert("Hello here");
+        $(document).ready(function () {
+            alert("Hello here");
+            $('#submit12').click(function () {
+                alert("Hello here");
+                
+                $.getJSON("/Home/getComment", function (data)
+                {
+                    alert("Hello here");
+                    $.each(data, function (i, value) {
+
+                        if (data != null) {
+                            $('#comment').append('<div> <p> Name =' + data.Name +' <br> '+ data.FComments +'</p> </div>');
+                        }
+                    });
+                });
+            });
+        });
+
+
+    </script>
+
+
+
+
+
+       
+
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.intellisense.js"></script>
+
+    <script src="~/Scripts/jquery-1.12.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+</body>

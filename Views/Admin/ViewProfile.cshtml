@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "ViewProfile";
+}
+
+@using GroceryStore.Models;
+@model User
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+<center>
+    <div style="margin-left:185px;margin-right:185px;">
+        <div class=" jumbotron">
+            <h2 style="color:black;font-family:'Comic Sans MS';font-weight:bolder;">My Profile Info</h2>
+            <br />
+            <span>
+                <label style="font-weight:bolder;font-family:'Comic Sans MS';display:inline-block;">Name:</label>
+                <label style="font-weight: bolder; font-family: 'Comic Sans MS'; display: inline-block;">@Model.Name</label>
+            </span>
+            <br />
+            <span>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">Password:</label>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">@Model.Password</label>
+            </span>
+            <br />
+            <span>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">Phone No.:</label>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">@Model.PhoneNo</label>
+            </span>
+            <br />
+            <span>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">Email Id:</label>
+                <label style=" font-family: 'Comic Sans MS'; display: inline-block;">@Model.Email</label>
+            </span>
+            <br />
+            <span>
+                <label style="font-family: 'Comic Sans MS'; display: inline-block">Address:</label>
+                <label style="font-family:'Comic Sans MS';">@Model.Address</label>
+            </span>
+        </div>
+    </div>
+</center>

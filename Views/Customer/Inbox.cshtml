@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Inbox";
+}
+@using GroceryStore.Models;
+@model IEnumerable<Query>
+@{
+
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+<center>
+<h2 style="color:black;">Inbox</h2>
+</center>
+<center>
+    @foreach (Query q in Model)
+    {
+        <label style="font-weight:bolder;">Message:</label>
+        <label>@q.Question</label>
+        <br>
+        if ((q.Reply) != null)
+        {
+            <h5><b>Reply: @q.Reply</b></h5>
+
+        }
+
+    }
+        
+</center>

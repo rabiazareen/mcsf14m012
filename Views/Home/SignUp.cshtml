@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+
+@using GroceryStore.Models;
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.12.0.min.js"></script>
+</head>
+<body  >
+  
+            <center>
+                <br /><h1 style=" padding:50px ;font-family:'Lucida Calligraphy'"><font color="White">Get Register Now!</font></h1>
+            </center>
+           
+        <div class="container">
+            <div class="jumbotron">
+                <form class=" form-horizontal" role="form" method="post" action="/Home/Register">
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label("Name")
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Enter username" name="Name" required id="1">
+                        </div>
+                    </div>
+                    <br>
+                    <button onclick="windows.location.href = ''" id="b4">check User</button>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label("Password")
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="2" name="password" placeholder="Enter password" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label("Phone No")
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="3" name="PhoneNo" placeholder="Enter PhoneNo" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label("Email")
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="4" name="email" placeholder="Enter Email" required>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label("Address")
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="5" name="Address" placeholder="Enter Address" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        
+                        <div class="col-sm-10">
+                            <input type="hidden" class="form-control" id="6" name="Role" value="Customer" placeholder="Enter Role" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    
+    <br>
+    <br>
+    <script>
+        $(document).ready(function () {
+            $("#b4").click(function () {
+                var a = $("#1").val();
+                $.getJSON("/Home/CheckUser?Name=" + a, function (data) { if (data) { $("#1").val("Already Exist") } else { $("#1").val(a) } });
+            });
+    $("#b1").click(function(){
+    var a=$("#1").val();
+    if(a=="")
+    {
+        alert("Name is not given");
+    }
+    var b=$("#2").val();
+    if(b=="")
+    {
+        alert("Password is not given");
+    }
+    var c=$("#3").val();
+    if(c=="")
+    {
+        alert("PhoneNo is not given");
+    }
+    var d=$("#4").val();
+    if(d=="")
+    {
+        alert("Email is not given");
+    }
+    var e=$("#5").val();
+    if(e=="")
+    {
+        alert("Address is not given");
+    }
+    });
+    });
+
+    </script>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

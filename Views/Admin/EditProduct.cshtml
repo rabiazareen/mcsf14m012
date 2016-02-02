@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "EditProduct";
+}
+@using GroceryStore.Models;
+@{
+
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+<center>
+    <h2>Edit  Product</h2>
+</center>
+<div class="container" style="border:solid; border-color:whitesmoke;margin-left:185px;margin-right:185px;">
+
+
+
+    <center>
+        <form method="post" action="/Admin/EditP">
+            <input type="hidden" name="PId" id="PId" value="@Model.PId" />
+             <span>
+                <label style="color:whitesmoke;font-family:'Comic Sans MS';">@Model.PName</label>
+                <input type="hidden" name="PName" id="PName" value="@Model.PName" />
+            </span>
+            <span>
+                <label style="color:whitesmoke;font-family:'Comic Sans MS';display:inline-block;">Price:</label>
+                <input type="text" name="Price" id="Price" value="@Model.Price" />
+            </span>
+            <br />
+            <span>
+                <label style="color:whitesmoke;font-family:'Comic Sans MS';display:inline-block;">Brand:</label>
+                <input type="text" name="Brand" id="Brand" value="@Model.Brand" />
+            </span>
+            <br />
+            <span>
+                <label style="color: whitesmoke; font-family: 'Comic Sans MS'; display: inline-block;">Amount:</label>
+                <input type="text" name="Amount" id="Amount" value="@Model.Amount" />
+            </span>
+            <br />
+            <span>
+                <label style="color: whitesmoke; font-family: 'Comic Sans MS'; display: inline-block;">Quantity:</label>
+                <input type="text" name="Qty" id="Qty" value="@Model.Qty" />
+            </span>
+            <br/>
+            <span>
+                <label style="color: whitesmoke; font-family: 'Comic Sans MS'; display: inline-block;">Category Id:</label>
+                <input type="text" name="CId" id="CId" value="@Model.CId" />
+            </span>
+            <br />
+            <input type="hidden" name="Path" id="Path" value="@Model.Path" />
+            <button>Update</button>
+        </form>
+    </center>
+</div>
+

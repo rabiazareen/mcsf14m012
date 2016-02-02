@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "ViewFeedback";
+}
+@using GroceryStore.Models
+@model IEnumerable<Feedback>
+<h2>ViewFeedback</h2>
+<div>
+    <br>
+    <center>
+        @foreach (Feedback f in Model)
+        {
+            <br />
+            <label style="font-family:Arial; color:whitesmoke">@f.FName says:</label>
+            <label style="font-family:Arial; color:whitesmoke">@f.FComments</label>
+        }
+    </center>
+    <br>
+</div>
